@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Student Projects</title>
+</head>
+<body>
+    <h1>All Projects</h1>
+    {% if projects %}
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <strong>Student:</strong> {{ project.student.name }}<br>
+                    <strong>Topic:</strong> {{ project.topic }}<br>
+                    <strong>Languages Used:</strong> {{ project.languages_used }}<br>
+                    <strong>Duration:</strong> {{ project.duration_weeks }} weeks
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No projects submitted yet.</p>
+    {% endif %}
+    <p><a href="{% url 'create_project' %}">Submit a New Project</a></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Students</title>
+</head>
+<body>
+    <h1>Registered Students</h1>
+    {% if students %}
+        <ul>
+            {% for student in students %}
+                <li>
+                    <a href="{% url 'student_detail' student.pk %}">
+                        {{ student.name }} ({{ student.email }})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students found. Please add some via the admin interface!</p>
+    {% endif %}
+    <p>
+        <a href="{% url 'admin:students_student_add' %}">Add New Student (Admin)</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Report Generation</title>
+</head>
+<body>
+    <h1>Generate Student Report</h1>
+    <p>Choose the report format:</p>
+    <button onclick="window.location.href='{% url 'generate_student_csv' %}'">Generate CSV</button>
+    <button onclick="window.location.href='{% url 'generate_student_pdf' %}'">Generate PDF</button>
+</body>
+</html>

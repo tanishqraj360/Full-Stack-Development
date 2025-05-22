@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Enrollments</title>
+</head>
+<body>
+    <h1>Course List with Enrolled Students</h1>
+    {% if courses %}
+        {% for course in courses %}
+            <h2>{{ course.title }}</h2>
+            <p>Description: {{ course.description }}</p>
+            <h3>Enrolled Students:</h3>
+            {% if course.enrolled_students.all %}
+                <ul>
+                    {% for student in course.enrolled_students.all %}
+                        <li>{{ student.name }} ({{ student.email }})</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No students currently enrolled in this course.</p>
+            {% endif %}
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No courses available yet.</p>
+    {% endif %}
+    <p><a href="{% url 'enroll_student' %}">Enroll a Student in a Course</a></p>
+</body>
+</html>
